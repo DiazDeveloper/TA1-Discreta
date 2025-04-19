@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Estructura de Datos\\MATEDISCRETA\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F58034DD-CA14-4BFE-A970-C638AD92A732}|MATEDISCRETA\\MATEDISCRETA.vcxproj|D:\\Estructura de Datos\\MATEDISCRETA\\MATEDISCRETA\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F58034DD-CA14-4BFE-A970-C638AD92A732}|MATEDISCRETA\\MATEDISCRETA.vcxproj|solutionrelative:MATEDISCRETA\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{f5cd1b51-c771-5648-966f-646d419b1e7c}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Source.cpp",
+              "DocumentMoniker": "D:\\Estructura de Datos\\MATEDISCRETA\\MATEDISCRETA\\Source.cpp",
+              "RelativeDocumentMoniker": "MATEDISCRETA\\Source.cpp",
+              "ToolTip": "D:\\Estructura de Datos\\MATEDISCRETA\\MATEDISCRETA\\Source.cpp",
+              "RelativeToolTip": "MATEDISCRETA\\Source.cpp",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAACoAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-19T20:15:31.911Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
