@@ -1,39 +1,42 @@
 #include <iostream>
-#include <vector>
-#include <cstdlib>
-#include <ctime>
-#include <set>
-
 using namespace std;
 
-// Función para generar una matriz booleana simétrica
-void generarRelaciones(vector<vector<bool>>& matriz, int n) {
-    srand(time(nullptr)); // Semilla para generación aleatoria
+const int MAX = 120;
 
-    for (int i = 0; i < n; ++i) {
-        int num_conexiones = rand() % 5 + 1; // Entre 1 y 5
-        set<int> conexiones;
+void inicializarMatriz(bool matriz[MAX][MAX], int n) {
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            matriz[i][j] = false;
+}
 
-        while (conexiones.size() < num_conexiones) {
-            int j = rand() % n;
-            if (j != i) {
-                conexiones.insert(j);
+int valorPseudoAleatorio(int semilla, int limite) {
+    semilla = (semilla * 37 + 11) % 1000;
+    return semilla % limite;
+}
+
+void generarRelaciones(bool matriz[MAX][MAX], int n) {
+    for (int i = 0; i < n; i++) {
+        int conexiones = (i * 7 + 3) % 5 + 1;
+        int contador = 0;
+        int intento = 0;
+
+        while (contador < conexiones && intento < n * 2) {
+            int j = valorPseudoAleatorio(i * intento + 17, n);
+            if (j != i && !matriz[i][j]) {
+                matriz[i][j] = true;
+                matriz[j][i] = true;
+                contador++;
             }
-        }
-
-        for (int j : conexiones) {
-            matriz[i][j] = true;
-            matriz[j][i] = true; // Simetría
+            intento++;
         }
     }
 }
 
-// Función para imprimir la matriz
-void imprimirMatriz(const vector<vector<bool>>& matriz) {
-    cout << "\nMatriz de relaciones (1 = conexión, 0 = sin conexión):\n";
-    for (const auto& fila : matriz) {
-        for (bool valor : fila) {
-            cout << valor << " ";
+void imprimirMatriz(bool matriz[MAX][MAX], int n) {
+    cout << "\nMatriz de relaciones:\n";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << matriz[i][j] << " ";
         }
         cout << endl;
     }
@@ -42,37 +45,24 @@ void imprimirMatriz(const vector<vector<bool>>& matriz) {
 int main() {
     int n;
 
-    // Validación de n entre 60 y 120
     do {
-        cout << "Ingrese el número de empleados (60 a 120): ";
+        cout << "Ingrese el numero de empleados (minimo 5, maximo 120): ";
         cin >> n;
-        if (n < 60) { // 60 ->10
-            cout << "Debe haber al menos 60 empleados.\n";
-        }
-    } while (n < 60); // 60 -> 10
+    } while (n < 5 || n > 120);
 
-    // Crear matriz booleana n x n inicializada en false
-    vector<vector<bool>> matriz(n, vector<bool>(n, false));
-
-    // Generar relaciones aleatorias
+    bool matriz[MAX][MAX];
+    inicializarMatriz(matriz, n);
     generarRelaciones(matriz, n);
+    imprimirMatriz(matriz, n);
 
-    // Imprimir la matriz
-    imprimirMatriz(matriz);
-
-    // Elegir al paciente cero
     int pacienteCero;
     do {
         cout << "\nSeleccione al empleado que se contagia primero (0 a " << n - 1 << "): ";
         cin >> pacienteCero;
-        if (pacienteCero < 0 || pacienteCero >= n) {
-            cout << "Número inválido.\n";
-        }
     } while (pacienteCero < 0 || pacienteCero >= n);
 
     cout << "Empleado #" << pacienteCero << " ha adquirido la enfermedad.\n";
-    cout << "Pulse enter para terminar la simulacion: ";
-    cin.ignore(); // Limpia el '\n' pendiente 
-    cin.get();    // Espera a que el usuario presione Enter
 
+    cin.ignore(); 
+    cin.get();    
 }

@@ -1,5 +1,4 @@
 ﻿  Source.cpp
-D:\Estructura de Datos\MATEDISCRETA\MATEDISCRETA\Source.cpp(11,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   Source.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
   MATEDISCRETA.vcxproj -> D:\Estructura de Datos\MATEDISCRETA\x64\Debug\MATEDISCRETA.exe
   "pwsh.exe" no se reconoce como un comando interno o externo,
